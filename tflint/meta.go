@@ -7,5 +7,5 @@ const Version string = "0.37.0"
 
 // ReferenceLink returns the rule reference link
 func ReferenceLink(name string) string {
-	return fmt.Sprintf("https://github.com/terraform-linters/tflint/blob/v%s/docs/rules/%s.md", Version, name)
+	return fmt.Sprintf("https://github.com/terraform-linters/tflint/blob/v%s/docs/rules/%s.md", Version, name) // Change this HTTP
 }

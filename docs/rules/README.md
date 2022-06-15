@@ -21,3 +21,4 @@ Below is a list of available rules.
 |[terraform_unused_declarations](terraform_unused_declarations.md)|Disallow variables, data sources, and locals that are declared but never used||
 |[terraform_unused_required_providers](terraform_unused_required_providers.md)|Check that all `required_providers` are used in the module||
 |[terraform_workspace_remote](terraform_workspace_remote.md)|`terraform.workspace` should not be used with a "remote" backend with remote execution|✔|
+|[terraform_customised_module_structure](terraform_standard_customised_structure.md)|Ensure that a module complies with a customised Terraform Module Structure||
