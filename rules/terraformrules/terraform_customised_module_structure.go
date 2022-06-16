@@ -10,7 +10,6 @@ import (
 )
 
 const (
-	filenameLocals    = "locals.tf"
 	filenameData      = "data.tf"
 	filenameProviders = "providers.tf"
 )
@@ -75,17 +74,6 @@ func (r *TerraformCustomisedModuleStructureRule) checkFiles(runner *tflint.Runne
 		)
 	}
 
-	if files[filenameLocals] == nil && len(runner.TFConfig.Module.Locals) == 0 {
-		runner.EmitIssue(
-			r,
-			fmt.Sprintf("Module should include an empty %s file", filenameLocals),
-			hcl.Range{
-				Filename: filepath.Join(runner.TFConfig.Module.SourceDir, filenameLocals),
-				Start:    hcl.InitialPos,
-			},
-		)
-	}
-
 	if files[filenameProviders] == nil {
 		runner.EmitIssue(
 			r,
@@ -103,7 +91,7 @@ func (r *TerraformCustomisedModuleStructureRule) checkLocals(runner *tflint.Runn
 		if filename := variable.DeclRange.Filename; r.shouldMove(filename, filenameLocals) {
 			runner.EmitIssue(
 				r,
-				fmt.Sprintf("local %q should be moved from %s to %s", variable.Name, filename, filenameLocals),
+				fmt.Sprintf("local %q should be moved from %s to %s", variable.Name, filename, filenameData),
 				variable.DeclRange,
 			)
 		}
